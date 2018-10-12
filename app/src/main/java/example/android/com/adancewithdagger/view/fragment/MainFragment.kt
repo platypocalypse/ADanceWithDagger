@@ -1,4 +1,4 @@
-package example.android.com.adancewithdagger.ui.main
+package example.android.com.adancewithdagger.view.fragment
 
 import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import example.android.com.adancewithdagger.R
+import example.android.com.adancewithdagger.view.viewmodel.MainViewModel
 
 class MainFragment : Fragment() {
 

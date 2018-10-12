@@ -1,8 +1,9 @@
-package example.android.com.adancewithdagger
+package example.android.com.adancewithdagger.view.activity
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import example.android.com.adancewithdagger.ui.main.MainFragment
+import example.android.com.adancewithdagger.R
+import example.android.com.adancewithdagger.view.fragment.MainFragment
 
 class MainActivity : AppCompatActivity() {
 

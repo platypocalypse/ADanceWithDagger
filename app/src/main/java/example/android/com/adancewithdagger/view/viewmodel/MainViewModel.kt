@@ -1,4 +1,4 @@
-package example.android.com.adancewithdagger.ui.main
+package example.android.com.adancewithdagger.view.viewmodel
 
 import android.arch.lifecycle.ViewModel
 
