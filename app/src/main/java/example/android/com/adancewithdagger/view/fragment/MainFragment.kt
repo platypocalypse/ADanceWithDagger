@@ -7,12 +7,16 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.jakewharton.rxbinding2.widget.RxSearchView
 import example.android.com.adancewithdagger.R
 import example.android.com.adancewithdagger.data.model.HouseDto
 import example.android.com.adancewithdagger.view.recyclerview.adapter.HousesAdapter
 import example.android.com.adancewithdagger.view.viewmodel.MainViewModel
 import kotlinx.android.synthetic.main.main_fragment.*
 import java.util.function.BiFunction
+import android.widget.ArrayAdapter
+
+
 
 class MainFragment : Fragment() {
 
@@ -29,7 +33,10 @@ class MainFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
 
-//        activity.searchView.setOnQueryTextListener
+        RxSearchView.queryTextChanges(searchView)
+            .subscribe{ viewModel.searchTextChanged(it) }
+
+//        viewModel.getHouses().observe(this, { } )
 
         housesRecyclerView.layoutManager = LinearLayoutManager(activity)
         housesRecyclerView.adapter = HousesAdapter(BiFunction{ t1,t2 -> t1.url == t2.url })
