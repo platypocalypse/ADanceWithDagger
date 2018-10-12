@@ -1,11 +1,11 @@
 package example.android.com.adancewithdagger.view.fragment
 
-import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
-import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import example.android.com.adancewithdagger.R
 import example.android.com.adancewithdagger.data.model.HouseDto
@@ -31,12 +31,12 @@ class MainFragment : Fragment() {
 
 //        activity.searchView.setOnQueryTextListener
 
-        activity.housesRecyclerView.layoutManager = LinearLayoutManager(activity)
-        activity.housesRecyclerView.adapter = HousesAdapter(BiFunction{ t1,t2 -> t1.url == t2.url })
+        housesRecyclerView.layoutManager = LinearLayoutManager(activity)
+        housesRecyclerView.adapter = HousesAdapter(BiFunction{ t1,t2 -> t1.url == t2.url })
     }
 
     fun updateHousesList(houses: List<HouseDto>) {
-        (activity.housesRecyclerView.adapter as HousesAdapter).swap(houses)
+        (housesRecyclerView.adapter as HousesAdapter).swap(houses)
     }
 
 }

@@ -1,7 +1,7 @@
 package example.android.com.adancewithdagger.view.activity
 
 import android.os.Bundle
-import android.support.v4.app.FragmentActivity
+import androidx.fragment.app.FragmentActivity
 import example.android.com.adancewithdagger.R
 import example.android.com.adancewithdagger.view.fragment.MainFragment
 
