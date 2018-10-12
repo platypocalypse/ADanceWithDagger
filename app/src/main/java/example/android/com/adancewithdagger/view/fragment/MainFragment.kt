@@ -6,18 +6,15 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
 import example.android.com.adancewithdagger.R
-import example.android.com.adancewithdagger.view.recyclerview.adapter.BaseRecyclerAdapter
+import example.android.com.adancewithdagger.data.model.HouseDto
+import example.android.com.adancewithdagger.view.recyclerview.adapter.HousesAdapter
 import example.android.com.adancewithdagger.view.viewmodel.MainViewModel
 import kotlinx.android.synthetic.main.main_fragment.*
+import java.util.function.BiFunction
 
 class MainFragment : Fragment() {
-
-    companion object {
-        fun newInstance() = MainFragment()
-    }
 
     private lateinit var viewModel: MainViewModel
 
@@ -35,7 +32,11 @@ class MainFragment : Fragment() {
 //        activity.searchView.setOnQueryTextListener
 
         activity.housesRecyclerView.layoutManager = LinearLayoutManager(activity)
-        activity.housesRecyclerView.adapter = BaseRecyclerAdapter()
+        activity.housesRecyclerView.adapter = HousesAdapter(BiFunction{ t1,t2 -> t1.url == t2.url })
+    }
+
+    fun updateHousesList(houses: List<HouseDto>) {
+        (activity.housesRecyclerView.adapter as HousesAdapter).swap(houses)
     }
 
 }
