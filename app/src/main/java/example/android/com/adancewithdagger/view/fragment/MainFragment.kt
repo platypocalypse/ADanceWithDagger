@@ -6,8 +6,12 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SearchView
+import androidx.recyclerview.widget.LinearLayoutManager
 import example.android.com.adancewithdagger.R
+import example.android.com.adancewithdagger.view.recyclerview.adapter.BaseRecyclerAdapter
 import example.android.com.adancewithdagger.view.viewmodel.MainViewModel
+import kotlinx.android.synthetic.main.main_fragment.*
 
 class MainFragment : Fragment() {
 
@@ -27,7 +31,11 @@ class MainFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
-        // TODO: Use the ViewModel
+
+//        activity.searchView.setOnQueryTextListener
+
+        activity.housesRecyclerView.layoutManager = LinearLayoutManager(activity)
+        activity.housesRecyclerView.adapter = BaseRecyclerAdapter()
     }
 
 }
