@@ -15,7 +15,7 @@ import example.android.com.adancewithdagger.view.viewmodel.MainViewModel
 import kotlinx.android.synthetic.main.main_fragment.*
 import java.util.function.BiFunction
 import android.widget.ArrayAdapter
-
+import androidx.lifecycle.Observer
 
 
 class MainFragment : Fragment() {
@@ -36,7 +36,7 @@ class MainFragment : Fragment() {
         RxSearchView.queryTextChanges(searchView)
             .subscribe{ viewModel.searchTextChanged(it) }
 
-//        viewModel.getHouses().observe(this, { } )
+        viewModel.getHouses().observe(this, Observer { updateHousesList(it) } )
 
         housesRecyclerView.layoutManager = LinearLayoutManager(activity)
         housesRecyclerView.adapter = HousesAdapter(BiFunction{ t1,t2 -> t1.url == t2.url })
