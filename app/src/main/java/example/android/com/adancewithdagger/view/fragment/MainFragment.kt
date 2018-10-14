@@ -1,5 +1,6 @@
 package example.android.com.adancewithdagger.view.fragment
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -16,16 +17,23 @@ import kotlinx.android.synthetic.main.main_fragment.*
 import java.util.function.BiFunction
 import android.widget.ArrayAdapter
 import androidx.lifecycle.Observer
+import example.android.com.adancewithdagger.MyApplication
 
 
 class MainFragment : Fragment() {
 
     private lateinit var viewModel: MainViewModel
 
+    override fun onAttach(context: Context?) {
+        MyApplication.get().component.inject(this)
+        super.onAttach(context)
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        MyApplication.get().component.inject(this)
         return inflater.inflate(R.layout.main_fragment, container, false)
     }
 

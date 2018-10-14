@@ -11,10 +11,16 @@ class MyApplication: Application() {
 
     override fun onCreate() {
         super.onCreate()
+        INSTANCE = this
         component = DaggerApplicationComponent.builder()
             .applicationModule(ApplicationModule(this))
             .build()
     }
 
-    fun getApplicationComponent(): ApplicationComponent = component
+
+    companion object {
+        private var INSTANCE: MyApplication? = null
+        @JvmStatic
+        fun get(): MyApplication = INSTANCE!!
+    }
 }
