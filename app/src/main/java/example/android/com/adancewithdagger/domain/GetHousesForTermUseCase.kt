@@ -8,8 +8,5 @@ import javax.inject.Inject
 class GetHousesForTermUseCase
     @Inject constructor(private val apiService: ApiService) {
 
-    fun call(term: String): List<HouseDto>? =
-        apiService.getHouses(term)
-            .execute()
-            .body()
+//    fun call(term: String): List<HouseDto>? =
 }
