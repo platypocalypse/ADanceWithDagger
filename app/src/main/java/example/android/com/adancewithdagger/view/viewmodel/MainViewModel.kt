@@ -8,7 +8,6 @@ import example.android.com.adancewithdagger.data.model.HouseDto
 import example.android.com.adancewithdagger.data.network.ApiService
 import kotlinx.coroutines.experimental.Dispatchers
 import kotlinx.coroutines.experimental.GlobalScope
-import kotlinx.coroutines.experimental.android.Main
 import kotlinx.coroutines.experimental.launch
 import java.lang.Exception
 import javax.inject.Inject
@@ -23,9 +22,10 @@ class MainViewModel @Inject constructor(private val apiService: ApiService) : Vi
     fun searchTextChanged(text: CharSequence) {
         GlobalScope.launch(Dispatchers.Main) {
             try {
-                val response = apiService.getHouses(text.toString()).await()
+                val request = apiService.getHouses(text.toString())
+                val response = request.await()
                 if (response.isSuccessful) {
-                    housesList.value = response.body()
+                    housesList.postValue(response.body())
                 } else {
                     Log.e(MainViewModel::class.java.simpleName,response.errorBody()!!.string())
                 }
