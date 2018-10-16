@@ -17,10 +17,15 @@ import kotlinx.android.synthetic.main.main_fragment.*
 import java.util.function.BiFunction
 import android.widget.ArrayAdapter
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import example.android.com.adancewithdagger.MyApplication
+import javax.inject.Inject
 
 
 class MainFragment : Fragment() {
+
+    @Inject
+    lateinit var viewModelFactory: ViewModelProvider.Factory
 
     private lateinit var viewModel: MainViewModel
 
@@ -39,7 +44,7 @@ class MainFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
+        viewModel = ViewModelProviders.of(this, viewModelFactory).get(MainViewModel::class.java)
 
         RxSearchView.queryTextChanges(searchView)
             .subscribe{ viewModel.searchTextChanged(it) }

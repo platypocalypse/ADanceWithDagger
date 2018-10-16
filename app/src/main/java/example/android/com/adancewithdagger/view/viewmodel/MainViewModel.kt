@@ -11,16 +11,16 @@ import kotlinx.coroutines.experimental.GlobalScope
 import kotlinx.coroutines.experimental.android.Main
 import kotlinx.coroutines.experimental.launch
 import java.lang.Exception
+import javax.inject.Inject
 
 
-class MainViewModel : ViewModel() {
+class MainViewModel @Inject constructor(private val apiService: ApiService) : ViewModel() {
 
     private var housesList: MutableLiveData<List<HouseDto>> = MutableLiveData()
 
     fun getHouses(): LiveData<List<HouseDto>> = housesList
 
     fun searchTextChanged(text: CharSequence) {
-        val apiService = ApiService()
         GlobalScope.launch(Dispatchers.Main) {
             try {
                 val response = apiService.getHouses(text.toString()).await()
