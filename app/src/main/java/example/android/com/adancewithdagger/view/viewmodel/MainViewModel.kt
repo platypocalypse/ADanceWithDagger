@@ -23,7 +23,7 @@ class MainViewModel
     fun searchTextChanged(text: CharSequence) {
         GlobalScope.launch(Dispatchers.Main) {
             try {
-                val request = getHousesForTermUseCase.call(text.toString())
+                val request = getHousesForTermUseCase.apply(text.toString())
                 val response = request.await()
                 if (response.isSuccessful) {
                     housesList.postValue(response.body())

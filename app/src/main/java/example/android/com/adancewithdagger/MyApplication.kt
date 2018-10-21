@@ -4,6 +4,7 @@ import android.app.Application
 import example.android.com.adancewithdagger.di.component.ApplicationComponent
 import example.android.com.adancewithdagger.di.component.DaggerApplicationComponent
 import example.android.com.adancewithdagger.di.module.ApplicationModule
+import io.realm.Realm
 
 class MyApplication: Application() {
 
@@ -15,6 +16,7 @@ class MyApplication: Application() {
         component = DaggerApplicationComponent.builder()
             .applicationModule(ApplicationModule(this))
             .build()
+        Realm.init(this)
     }
 
 
