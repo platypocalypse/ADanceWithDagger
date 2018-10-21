@@ -48,6 +48,8 @@ class MainFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProviders.of(this, viewModelFactory).get(MainViewModel::class.java)
 
+        viewModel.downloadHouses()
+
         viewModel.getHouses().observe(this, Observer { updateHousesList(it) } )
 
         housesRecyclerView.layoutManager = LinearLayoutManager(activity)

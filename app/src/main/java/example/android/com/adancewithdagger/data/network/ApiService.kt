@@ -9,6 +9,9 @@ import retrofit2.http.Query
 interface ApiService {
 
     @GET("houses/")
+    fun getAllHouses() : Deferred<Response<List<HouseDto>>>
+
+    @GET("houses/")
     fun getHouses(@Query("name") term: String) : Deferred<Response<List<HouseDto>>>
 
 }

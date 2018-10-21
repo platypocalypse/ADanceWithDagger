@@ -2,8 +2,10 @@ package example.android.com.adancewithdagger.data.model
 
 import io.realm.RealmList
 import io.realm.RealmObject
+import io.realm.annotations.PrimaryKey
 
-class HouseDtoEntity (
+open class HouseDtoEntity (
+    @PrimaryKey
     var url: String? = null,
     var name: String? = null,
     var region: String? = null,

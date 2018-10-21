@@ -3,8 +3,10 @@ package example.android.com.adancewithdagger.data.transformer
 import example.android.com.adancewithdagger.data.model.HouseDto
 import example.android.com.adancewithdagger.data.model.HouseDtoEntity
 import java.util.function.Function
+import javax.inject.Inject
 
-class HouseDtoEntityTransformer : Function<HouseDtoEntity, HouseDto> {
+class HouseDtoEntityTransformer
+    @Inject constructor(): Function<HouseDtoEntity, HouseDto> {
     override fun apply(entity: HouseDtoEntity): HouseDto =
         HouseDto(
             entity.url,

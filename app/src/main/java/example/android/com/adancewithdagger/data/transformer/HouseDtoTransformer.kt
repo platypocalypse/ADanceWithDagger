@@ -4,8 +4,10 @@ import example.android.com.adancewithdagger.data.model.HouseDto
 import example.android.com.adancewithdagger.data.model.HouseDtoEntity
 import io.realm.RealmList
 import java.util.function.Function
+import javax.inject.Inject
 
-class HouseDtoTransformer : Function<HouseDto, HouseDtoEntity> {
+class HouseDtoTransformer
+    @Inject constructor(): Function<HouseDto, HouseDtoEntity> {
 
     override fun apply(houseDto: HouseDto): HouseDtoEntity =
         HouseDtoEntity().apply {

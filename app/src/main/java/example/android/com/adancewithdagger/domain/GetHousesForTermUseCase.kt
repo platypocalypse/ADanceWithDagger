@@ -1,15 +1,13 @@
 package example.android.com.adancewithdagger.domain
 
 import example.android.com.adancewithdagger.data.model.HouseDto
-import example.android.com.adancewithdagger.data.network.ApiService
-import kotlinx.coroutines.experimental.Deferred
-import retrofit2.Response
+import example.android.com.adancewithdagger.data.repository.GetHousesFromRepo
 import java.util.function.Function
 import javax.inject.Inject
 
 class GetHousesForTermUseCase
-    @Inject constructor(private val apiService: ApiService) : Function<String, Deferred<Response<List<HouseDto>>>> {
+    @Inject constructor(private val getHousesFromRepo: GetHousesFromRepo)
+    : Function<String, List<HouseDto>?> {
 
-    override fun apply(term: String): Deferred<Response<List<HouseDto>>>
-            = apiService.getHouses(term)
+    override fun apply(term: String): List<HouseDto>? = getHousesFromRepo.apply(term)
 }

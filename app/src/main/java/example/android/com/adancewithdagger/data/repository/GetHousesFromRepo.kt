@@ -3,6 +3,7 @@ package example.android.com.adancewithdagger.data.repository
 import example.android.com.adancewithdagger.data.model.HouseDto
 import example.android.com.adancewithdagger.data.model.HouseDtoEntity
 import example.android.com.adancewithdagger.data.transformer.HouseDtoEntityTransformer
+import io.realm.Case
 import io.realm.Realm
 import timber.log.Timber
 import java.lang.Exception
@@ -19,7 +20,7 @@ class GetHousesFromRepo
         try {
             val entities: List<HouseDtoEntity> =
                 realm.where(HouseDtoEntity::class.java)
-                    .contains("name", term)
+                    .contains("name", term, Case.INSENSITIVE)
                     .findAll()
 
             houseDtos = entities.map{ houseDtoEntityTransformer.apply(it) }
