@@ -11,7 +11,7 @@ import java.util.function.BiFunction
 class HousesAdapter(func: BiFunction<HouseDto, HouseDto, Boolean>) : BaseRecyclerAdapter<HouseDto>(func) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.viewholder_house, null, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.viewholder_house, parent, false)
         return object : RecyclerView.ViewHolder(view) {}
     }
 

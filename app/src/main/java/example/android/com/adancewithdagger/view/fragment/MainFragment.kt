@@ -64,6 +64,7 @@ class MainFragment : Fragment() {
 
     fun updateHousesList(houses: List<HouseDto>) {
         (housesRecyclerView.adapter as HousesAdapter).swap(houses)
+        housesRecyclerView.scrollToPosition(0)
     }
 
     override fun onStop() {
