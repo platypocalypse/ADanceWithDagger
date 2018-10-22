@@ -7,7 +7,7 @@ import dagger.Binds
 import dagger.Module
 import example.android.com.adancewithdagger.di.ViewModelFactory
 import example.android.com.adancewithdagger.di.ViewModelKey
-import example.android.com.adancewithdagger.view.viewmodel.MainViewModel
+import example.android.com.adancewithdagger.viewmodel.MainViewModel
 
 
 @Module

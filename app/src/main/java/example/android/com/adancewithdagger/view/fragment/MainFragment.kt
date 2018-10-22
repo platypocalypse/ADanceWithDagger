@@ -12,7 +12,7 @@ import com.jakewharton.rxbinding2.widget.RxSearchView
 import example.android.com.adancewithdagger.R
 import example.android.com.adancewithdagger.data.model.HouseDto
 import example.android.com.adancewithdagger.view.recyclerview.adapter.HousesAdapter
-import example.android.com.adancewithdagger.view.viewmodel.MainViewModel
+import example.android.com.adancewithdagger.viewmodel.MainViewModel
 import kotlinx.android.synthetic.main.main_fragment.*
 import java.util.function.BiFunction
 import androidx.lifecycle.Observer

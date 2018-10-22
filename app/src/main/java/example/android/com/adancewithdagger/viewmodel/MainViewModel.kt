@@ -1,4 +1,4 @@
-package example.android.com.adancewithdagger.view.viewmodel
+package example.android.com.adancewithdagger.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

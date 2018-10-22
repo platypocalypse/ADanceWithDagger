@@ -1,17 +1,10 @@
 package example.android.com.adancewithdagger.di.module
 
 import android.content.Context
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.experimental.CoroutineCallAdapterFactory
-import dagger.Binds
 import dagger.Module
 import dagger.Provides
-import dagger.multibindings.IntoMap
 import example.android.com.adancewithdagger.data.network.ApiService
-import example.android.com.adancewithdagger.di.ViewModelFactory
-import example.android.com.adancewithdagger.di.ViewModelKey
-import example.android.com.adancewithdagger.view.viewmodel.MainViewModel
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import javax.inject.Singleton

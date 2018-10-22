@@ -24,9 +24,7 @@ abstract class BaseRecyclerAdapter<T>
 
     fun getClicks(): Observable<Pair<Int, T>> = clicksRelay
 
-    override fun getItemCount(): Int {
-        return values.size
-    }
+    override fun getItemCount(): Int = values.size
 
     fun swap(newValues: List<T>) {
         val diffResult = DiffUtil.calculateDiff(createElementsDiffCallback(newValues), true)
@@ -59,7 +57,5 @@ abstract class BaseRecyclerAdapter<T>
 
     protected abstract fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int, element: T)
 
-    protected fun getPosition(position: Int): T {
-        return values[position]
-    }
+    protected fun getPosition(position: Int): T = values[position]
 }
