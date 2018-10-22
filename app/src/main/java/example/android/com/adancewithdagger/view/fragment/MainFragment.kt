@@ -17,7 +17,7 @@ import kotlinx.android.synthetic.main.main_fragment.*
 import java.util.function.BiFunction
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import example.android.com.adancewithdagger.MyApplication
+import example.android.com.adancewithdagger.application.MyApplication
 import io.reactivex.disposables.Disposable
 import javax.inject.Inject
 

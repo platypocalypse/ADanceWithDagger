@@ -1,9 +1,9 @@
-package example.android.com.adancewithdagger
+package example.android.com.adancewithdagger.application
 
 import android.app.Application
-import example.android.com.adancewithdagger.di.component.ApplicationComponent
-import example.android.com.adancewithdagger.di.component.DaggerApplicationComponent
-import example.android.com.adancewithdagger.di.module.ApplicationModule
+import example.android.com.adancewithdagger.application.di.component.ApplicationComponent
+import example.android.com.adancewithdagger.application.di.component.DaggerApplicationComponent
+import example.android.com.adancewithdagger.application.di.module.ApplicationModule
 import io.realm.Realm
 
 class MyApplication: Application() {

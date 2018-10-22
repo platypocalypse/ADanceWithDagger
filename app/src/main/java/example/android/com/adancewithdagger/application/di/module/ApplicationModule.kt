@@ -1,4 +1,4 @@
-package example.android.com.adancewithdagger.di.module
+package example.android.com.adancewithdagger.application.di.module
 
 import android.content.Context
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.experimental.CoroutineCallAdapterFactory

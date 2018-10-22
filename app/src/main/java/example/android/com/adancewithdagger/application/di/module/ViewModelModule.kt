@@ -1,12 +1,12 @@
-package example.android.com.adancewithdagger.di.module
+package example.android.com.adancewithdagger.application.di.module
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import dagger.multibindings.IntoMap
 import dagger.Binds
 import dagger.Module
-import example.android.com.adancewithdagger.di.ViewModelFactory
-import example.android.com.adancewithdagger.di.ViewModelKey
+import example.android.com.adancewithdagger.application.di.ViewModelFactory
+import example.android.com.adancewithdagger.application.di.ViewModelKey
 import example.android.com.adancewithdagger.viewmodel.MainViewModel
 
 
